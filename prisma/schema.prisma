@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  admin
+  user
+
+  @@map("user_role")
+}
+
+enum UserStatus {
+  active
+  banned
+
+  @@map("user_status")
+}
+
+model User {
+  id        String     @id @db.Uuid
+  role      UserRole
+  firstName String     @map("first_name") @db.VarChar()
+  lastName  String     @map("last_name") @db.VarChar()
+  email     String     @db.VarChar()
+  hash      String?    @db.VarChar()
+  status    UserStatus
+  createdAt DateTime   @default(now()) @map("created_at") @db.Timestamptz()
+  createdBy String     @map("created_by") @db.Uuid
+
+  @@map("user")
+}
