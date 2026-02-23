@@ -8,17 +8,17 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  create(@Body() data: CreateUserDTO): ViewUserDTO {
+  create(@Body() data: CreateUserDTO): Promise<ViewUserDTO> {
     return this.usersService.create(data);
   }
 
   @Get()
-  get(): ViewUserDTO[] {
+  get(): Promise<ViewUserDTO[]> {
     return this.usersService.get();
   }
 
   @Get(':id')
-  getOne(@Param() { id }: IdParamDTO): ViewUserDTO {
+  getOne(@Param() { id }: IdParamDTO): Promise<ViewUserDTO> {
     return this.usersService.getOne(id);
   }
 
@@ -26,12 +26,15 @@ export class UsersController {
   update(
     @Param() { id }: IdParamDTO,
     @Body() data: CreateUserDTO,
-  ): ViewUserDTO {
+  ): Promise<ViewUserDTO> {
     return this.usersService.update(id, data);
   }
 
   @Post(':id/ban')
-  ban(@Param() { id }: IdParamDTO, @Body() data: BanUserDTO): ViewUserDTO {
+  ban(
+    @Param() { id }: IdParamDTO,
+    @Body() data: BanUserDTO,
+  ): Promise<ViewUserDTO> {
     return this.usersService.ban(id, data);
   }
 }
