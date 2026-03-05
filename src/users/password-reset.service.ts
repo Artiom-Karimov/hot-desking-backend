@@ -10,10 +10,13 @@ export class PasswordResetService {
   constructor(private readonly prisma: PrismaService) {}
 
   public async createOrReplace(userId: string, email: string): Promise<void> {
+    const code = this.generateCode();
+    const hash = await argon2.hash(code);
+
     const data: Prisma.PasswordResetUncheckedCreateInput = {
       userId,
       attempts: 0,
-      code: this.generateCode(),
+      code: hash,
       createdAt: new Date(),
       expiresAt: this.expiresAt(),
     };
@@ -74,7 +77,7 @@ export class PasswordResetService {
       throw new UnauthorizedException('Wrong reset code');
     }
 
-    if (data.code !== code) {
+    if (!(await argon2.verify(data.code, code))) {
       await this.prisma.passwordReset.update({
         where: { userId },
         data: { attempts: data.attempts + 1 },
