@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Создайте свой пароль</title>
+  <style type="text/css">
+    /* Сброс стилей */
+    #outlook a {
+      padding: 0;
+    }
+
+    body {
+      width: 100% !important;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ExternalClass {
+      width: 100%;
+    }
+
+    .ExternalClass,
+    .ExternalClass p,
+    .ExternalClass span,
+    .ExternalClass font,
+    .ExternalClass td,
+    .ExternalClass div {
+      line-height: 100%;
+    }
+
+    table td {
+      border-collapse: collapse;
+    }
+
+    .yshortcuts a {
+      border-bottom: none !important;
+    }
+
+    /* Основные стили */
+    body,
+    #bodyTable {
+      background-color: #f4f4f4;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #333333;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Стили для контейнера */
+    #templateContainer {
+      max-width: 600px;
+      width: 100%;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Заголовок */
+    .header {
+      background-color: #007bff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* Контент */
+    .content {
+      padding: 30px;
+      color: #333333;
+    }
+
+    /* Кнопка */
+    .button-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #28a745;
+      color: white !important;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      text-align: center;
+      /* Для совместимости с Outlook */
+      border: 1px solid #28a745;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    /* Блок с информацией об истечении срока */
+    .expiry-block {
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 4px;
+      padding: 15px;
+      margin: 20px 0;
+      text-align: center;
+      color: #856404;
+    }
+
+    /* Подвал */
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #f8f9fa;
+      color: #6c757d;
+      font-size: 12px;
+    }
+
+    /* Для Outlook */
+    @media only screen and (max-width: 600px) {
+      #templateContainer {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .content {
+        padding: 20px !important;
+      }
+    }
+  </style>
+
+  <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+</head>
+
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0"
+  style="margin: 0; padding: 0; background-color: #f4f4f4;">
+  <table id="bodyTable" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f4f4f4;">
+    <tr>
+      <td align="center" valign="top">
+        <table id="templateContainer" border="0" cellpadding="0" cellspacing="0" width="600"
+          style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+          <!-- Заголовок -->
+          <tr>
+            <td class="header" align="center" valign="middle"
+              style="background-color: #007bff; color: white; padding: 20px; font-size: 24px; font-weight: bold;">
+              Добро пожаловать!
+            </td>
+          </tr>
+
+          <!-- Контент -->
+          <tr>
+            <td class="content" style="padding: 30px; color: #333333;">
+              <p style="margin: 0 0 15px 0;">Здравствуйте, {{name}}!</p>
+
+              <p style="margin: 0 0 15px 0;">Благодарим вас за регистрацию. Чтобы завершить настройку вашего аккаунта,
+                пожалуйста, создайте свой личный пароль.</p>
+
+              <!-- Кнопка -->
+              <table class="button-container" align="center" border="0" cellpadding="0" cellspacing="0"
+                style="margin: 20px 0;">
+                <tr>
+                  <td align="center">
+                    <a href="{{link}}" class="button"
+                      style="display: inline-block; padding: 15px 30px; background-color: #28a745; color: white !important; text-decoration: none; border-radius: 4px; font-weight: bold; text-align: center; border: 1px solid #28a745;">
+                      Создать пароль
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Блок с информацией об истечении срока -->
+              <table class="expiry-block" border="0" cellpadding="0" cellspacing="0" width="100%"
+                style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 4px; padding: 15px; margin: 20px 0;">
+                <tr>
+                  <td align="center" style="color: #856404; text-align: center;">
+                    <strong>Важно:</strong><br />
+                    Ссылка для создания пароля действительна до {{expiration}}
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin: 0 0 15px 0;">Если вы не регистрировались у нас, просто проигнорируйте это письмо.</p>
+
+              <p style="margin: 0;">С уважением,<br />Команда поддержки</p>
+            </td>
+          </tr>
+
+          <!-- Подвал -->
+          <tr>
+            <td class="footer"
+              style="padding: 20px; text-align: center; background-color: #f8f9fa; color: #6c757d; font-size: 12px;">
+              <p style="margin: 0;">Это автоматическое сообщение. Отвечать на него не нужно.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

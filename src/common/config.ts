@@ -7,6 +7,50 @@ const schema = convict({
     default: 3000,
     env: 'PORT',
   },
+  email: {
+    service: {
+      doc: 'Service type for email',
+      format: String,
+      default: 'gmail',
+      env: 'EMAIL_SERVICE',
+    },
+    auth: {
+      user: {
+        doc: 'Login for email',
+        format: String,
+        default: '',
+        env: 'EMAIL_USER',
+      },
+      pass: {
+        doc: 'Password for email',
+        format: String,
+        default: '',
+        env: 'EMAIL_PASSWORD',
+      },
+    },
+    hello: {
+      subject: {
+        doc: 'Confirm your email',
+        format: String,
+        default: 'Confirm your email',
+        env: 'EMAIL_HELLO_SUBJECT',
+      },
+    },
+  },
+  frontend: {
+    baseUrl: {
+      doc: 'Fronted application base URL',
+      format: String,
+      default: 'http://localhost:5000',
+      env: 'FRONTEND_URL',
+    },
+    confirmUrl: {
+      doc: 'Fronted confirm-account url',
+      format: String,
+      default: '/confirm',
+      env: 'FRONTEND_CONFIRM_URL',
+    },
+  },
   password: {
     code: {
       min: {

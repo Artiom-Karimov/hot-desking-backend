@@ -1,5 +1,6 @@
 export * from './ban-user.dto';
 export * from './create-user.dto';
+export * from './password-reset-code.dto';
 export * from './reset-password.dto';
 export * from './set-password.dto';
 export * from './user-role';
