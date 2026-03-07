@@ -8,6 +8,12 @@ const schema = convict({
     env: 'PORT',
   },
   email: {
+    disabled: {
+      doc: 'If true, do not use email client',
+      format: Boolean,
+      default: false,
+      env: 'EMAIL_DISABLED',
+    },
     service: {
       doc: 'Service type for email',
       format: String,
@@ -77,6 +83,32 @@ const schema = convict({
         default: 3,
         env: 'PASSWORD_RESET_ATTEMPTS',
       },
+    },
+  },
+  seedUser: {
+    email: {
+      doc: 'Initial user email',
+      format: String,
+      default: '',
+      env: 'USER_EMAIL',
+    },
+    password: {
+      doc: 'Initial user password',
+      format: String,
+      default: '',
+      env: 'USER_PASSWORD',
+    },
+    firstName: {
+      doc: 'Initial user name',
+      format: String,
+      default: '',
+      env: 'USER_FIRST_NAME',
+    },
+    lastName: {
+      doc: 'Initial user last name',
+      format: String,
+      default: '',
+      env: 'USER_LAST_NAME',
     },
   },
 });
