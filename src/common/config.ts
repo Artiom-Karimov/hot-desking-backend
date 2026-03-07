@@ -79,6 +79,32 @@ const schema = convict({
       },
     },
   },
+  seedUser: {
+    email: {
+      doc: 'Initial user email',
+      format: String,
+      default: '',
+      env: 'USER_EMAIL',
+    },
+    password: {
+      doc: 'Initial user password',
+      format: String,
+      default: '',
+      env: 'USER_PASSWORD',
+    },
+    firstName: {
+      doc: 'Initial user name',
+      format: String,
+      default: '',
+      env: 'USER_FIRST_NAME',
+    },
+    lastName: {
+      doc: 'Initial user last name',
+      format: String,
+      default: '',
+      env: 'USER_LAST_NAME',
+    },
+  },
 });
 
 schema.validate({ allowed: 'strict' });
