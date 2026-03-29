@@ -15,7 +15,7 @@ export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
   @Get()
-  getProfile(): ViewProfileDTO {
+  getProfile(): Promise<ViewProfileDTO> {
     return this.profileService.getSelf(randomUUID());
   }
 
