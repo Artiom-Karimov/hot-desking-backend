@@ -1,4 +1,5 @@
 import convict from 'convict';
+import { randomBytes } from 'crypto';
 
 const schema = convict({
   port: {
@@ -41,6 +42,20 @@ const schema = convict({
         default: 'Confirm your email',
         env: 'EMAIL_HELLO_SUBJECT',
       },
+    },
+  },
+  jwt: {
+    secret: {
+      doc: 'JWT secret',
+      format: String,
+      default: randomBytes(32).toString('base64url'),
+      env: 'JWT_SECRET',
+    },
+    expirationSeconds: {
+      doc: 'JWT expiration seconds',
+      format: Number,
+      default: 3_600,
+      env: 'JWT_EXPIRATION_SECONDS',
     },
   },
   frontend: {

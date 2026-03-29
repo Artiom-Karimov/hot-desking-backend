@@ -7,7 +7,7 @@ export class Hasher {
 
   public static async verify(hash: string, password: string): Promise<boolean> {
     try {
-      return await this.verify(hash, password);
+      return await argon2.verify(hash, password);
     } catch (error) {
       console.error(error);
       return false;
