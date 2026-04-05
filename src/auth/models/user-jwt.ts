@@ -3,6 +3,8 @@ import { AsyncJWT } from './async-jwt';
 
 const ONE_SECOND = 1_000;
 
+export type JWTUser = { userId: string; userRole: UserRole };
+
 export class UserJWT {
   private readonly jwt: AsyncJWT;
 
@@ -25,9 +27,7 @@ export class UserJWT {
     });
   }
 
-  public async verify(
-    token: string,
-  ): Promise<{ userId: string; userRole: UserRole }> {
+  public async verify(token: string): Promise<JWTUser> {
     const data = await this.jwt.verify(token);
     return {
       userId: data.sub,
