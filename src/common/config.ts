@@ -8,6 +8,12 @@ const schema = convict({
     default: 3000,
     env: 'PORT',
   },
+  env: {
+    doc: 'Application environment',
+    format: String,
+    default: 'development',
+    env: 'ENVIRONMENT',
+  },
   email: {
     disabled: {
       doc: 'If true, do not use email client',
