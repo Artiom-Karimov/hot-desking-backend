@@ -9,6 +9,16 @@
         "outDir": "dist/src"
       }
     ],
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "plugins": [
+      {
+        "name": "@nestjs/swagger",
+        "options": {
+          "classValidatorShim": true,
+          "introspectComments": true,
+          "skipAutoHttpCode": false
+        }
+      }
+    ]
   }
 }

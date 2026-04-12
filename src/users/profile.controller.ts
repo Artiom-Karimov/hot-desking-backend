@@ -9,8 +9,9 @@ import {
 } from '@nestjs/common';
 import { ProfileService } from './profile.service';
 import { ResetPasswordDTO, SetPasswordDTO, ViewProfileDTO } from './dto';
-import { AccessGuard, User } from 'src/common';
+import { AccessGuard, SWAGGER_BEARER_NAME, User } from 'src/common';
 import type { JWTUser } from 'src/auth/models';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('profile')
 export class ProfileController {
@@ -18,6 +19,7 @@ export class ProfileController {
 
   @Get()
   @UseGuards(AccessGuard)
+  @ApiBearerAuth(SWAGGER_BEARER_NAME)
   getProfile(@User() user: JWTUser): Promise<ViewProfileDTO> {
     return this.profileService.getSelf(user.userId);
   }

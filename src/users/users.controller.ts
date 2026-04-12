@@ -9,12 +9,20 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { BanUserDTO, CreateUserDTO, UserRole, ViewUserDTO } from './dto';
-import { AccessGuard, IdParamDTO, Roles, User } from 'src/common';
+import {
+  AccessGuard,
+  IdParamDTO,
+  Roles,
+  SWAGGER_BEARER_NAME,
+  User,
+} from 'src/common';
 import type { JWTUser } from 'src/auth/models';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('users')
 @Roles(UserRole.Admin)
 @UseGuards(AccessGuard)
+@ApiBearerAuth(SWAGGER_BEARER_NAME)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
